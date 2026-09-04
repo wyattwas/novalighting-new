@@ -1,0 +1,12 @@
+ktor:
+  deployment:
+    port: 8080
+  application:
+    modules:
+      - de.novalighting.SerializationKt.configureSerialization
+      - de.novalighting.PostgresKt.configurePostgres
+      - de.novalighting.RoutingKt.configureRouting
+db:
+  url: "jdbc:postgresql://db/"
+  user: "test"
+  pass: "test"
