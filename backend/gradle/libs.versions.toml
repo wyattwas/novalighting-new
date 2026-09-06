@@ -2,14 +2,17 @@
 h2 = "2.4.240"
 kotlin = "2.4.0"
 logback = "1.5.37"
-postgresql = "42.7.13"
+exposed = "1.5.0"
+koin = "4.2.2"
 
 [libraries]
 h2database-h2 = { module = "com.h2database:h2", version.ref = "h2" }
 logback-classic = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }
-postgresql = { module = "org.postgresql:postgresql", version.ref = "postgresql" }
+exposed-jdbc = { module = "org.jetbrains.exposed:exposed-jdbc", version.ref = "exposed" }
+exposed-dao = { module = "org.jetbrains.exposed:exposed-dao", version.ref = "exposed" }
+exposed-datetime = { module = "org.jetbrains.exposed:exposed-kotlin-datetime", version.ref = "exposed" }
+koin-ktor = { module = "io.insert-koin:koin-ktor", version.ref = "koin" }
 
 [plugins]
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
-kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
