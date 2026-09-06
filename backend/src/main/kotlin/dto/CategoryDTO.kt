@@ -1,9 +1,9 @@
-package de.novalighting.model
+package de.novalighting.dto
 
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class Category(
+data class CategoryDTO(
     val id: Int,
     val name: String,
 )

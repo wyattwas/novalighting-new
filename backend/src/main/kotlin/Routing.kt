@@ -1,20 +1,20 @@
 package de.novalighting
 
-import de.novalighting.equipment.task
+import de.novalighting.controller.customer
+import de.novalighting.controller.equipmentRoutes
+import de.novalighting.repository.EquipmentRepository
 import io.ktor.server.application.*
-import io.ktor.server.response.*
 import io.ktor.server.routing.*
-import io.ktor.server.http.content.*
+import org.koin.ktor.ext.inject
 
 fun Application.configureRouting() {
+    val equipmentRepository by inject<EquipmentRepository>()
+
     routing {
-        get("/") {
-            call.respondText("Hello, World!")
+        route("/api") {
+            equipmentRoutes(equipmentRepository)
+            customer()
+//            categoryRoutes()
         }
-        staticResources("/static", "static")
-        get("/json/kotlinx-serialization") {
-            call.respond(mapOf("hello" to "world"))
-        }
-        task()
     }
 }

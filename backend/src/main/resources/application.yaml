@@ -3,9 +3,10 @@ ktor:
     port: 8080
   application:
     modules:
+      - de.novalighting.DependencyKt.configureDependencies
       - de.novalighting.SerializationKt.configureSerialization
-      - de.novalighting.PostgresKt.configurePostgres
       - de.novalighting.RoutingKt.configureRouting
+      - de.novalighting.ExposedKt.configureExposed
 db:
   url: "jdbc:postgresql://db/"
   user: "test"
