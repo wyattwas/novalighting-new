@@ -3,7 +3,7 @@ package de.novalighting.model
 sealed interface BookingItemType
 
 data class EquipmentItem(
-    val equipment: Equipment
+    val equipment: EquipmentTable
 ) : BookingItemType
 
 data class PackageItemType(

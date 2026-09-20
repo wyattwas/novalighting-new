@@ -22,6 +22,7 @@ dependencies {
     implementation(ktorLibs.server.netty)
     implementation(libs.h2database.h2)
     implementation(libs.logback.classic)
+    implementation(libs.postgresql)
     implementation(libs.exposed.jdbc)
     implementation(libs.exposed.dao)
     implementation(libs.exposed.datetime)

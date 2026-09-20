@@ -18,3 +18,17 @@ data class EquipmentDTO(
     var active: Boolean,
     val createdAt: Instant,
 )
+
+@Serializable
+data class EquipmentRequestDTO(
+    var name: String,
+    var category: Int,
+    var manufacturer: String?,
+    var powerWatts: Int?,
+    var weightKg: Double?,
+    var specs: String?,
+    var totalQuantity: Int?,
+    var pricePerDay: Double,
+    var notes: String?,
+    var active: Boolean?,
+)
