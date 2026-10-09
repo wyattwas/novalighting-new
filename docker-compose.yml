@@ -1,0 +1,28 @@
+services:
+  frontend:
+    build:
+      context: docker/frontend
+      target: develop
+      additional_contexts:
+        nuxt: ./app/frontend
+      args:
+        DOCKER_UID: ${DOCKER_UID:-1000}
+        DOCKER_GID: ${DOCKER_GID:-1000}
+    volumes:
+      - ./app/frontend:/var/www/html
+
+  backend:
+    build:
+      context: docker/backend
+
+  db:
+    image: postgres:18-alpine
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:?set in .env}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set in .env}
+      POSTGRES_DB: ${POSTGRES_PASSWORD:-db}
+    volumes:
+      - db:/var/lib/postgres
+
+volumes:
+  db:
