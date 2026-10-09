@@ -1,0 +1,17 @@
+services:
+  frontend:
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.${COMPOSE_PROJECT_NAME}-frontend.rule=Host(`${TRAEFIK_HOST:?set in .env}`)"
+      - "traefik.http.services.${COMPOSE_PROJECT_NAME}-frontend.loadbalancer.server.port=3000"
+
+  backend:
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.${COMPOSE_PROJECT_NAME}-backend.rule=Host(`${TRAEFIK_HOST:?set in .env}`) && PathPrefix(`/api/`)"
+
+  db:
+    labels:
+      - "traefik.enable=true"
+      - "traefik.tcp.routers.${COMPOSE_PROJECT_NAME}-db.rule=HostSNI(`*`)"
+      - "traefik.tcp.services.${COMPOSE_PROJECT_NAME}-db.loadbalancer.server.port=5432"
