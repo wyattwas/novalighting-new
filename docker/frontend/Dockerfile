@@ -10,10 +10,11 @@ EOF
 ARG DOCKER_UID=1000
 ARG DOCKER_GID=1000
 RUN <<EOF
+set -e
 
 deluser node
 addgroup -S node -g $DOCKER_GID
-adduser -S -G node -u $DOCKER_UID
+adduser -S -G node -u $DOCKER_UID node
 chown -R node:node /home/node
 EOF
 
